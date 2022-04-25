@@ -1,0 +1,87 @@
+html{
+    background-color: black;
+    /* position: fixed; */
+    
+}
+
+body{
+    background-color: white;
+    width: 90%;
+    height:120vh; 
+    margin-top: 10%;  
+    /* padding-left: 10%;  */
+}
+
+
+td{
+    /* border: 1px solid black; */
+    width:100%;
+}
+.bar{
+    border: 1px solid black;
+    background-color: black;
+    padding:10px;
+    
+}
+
+
+table{
+    width:90%;
+}
+
+
+
+.text-center{
+    text-align: center;
+
+}
+.text-left{
+    margin-top: 3%;
+    font-size: 12px;
+}
+span{
+    color:gold
+}
+
+label, input {
+    /* display: block; */
+}
+
+label {
+    margin-bottom: 2%;
+}
+
+
+#form-top label{
+    display: inline-block;
+    width: 20%;
+    
+}
+
+#form-top{
+    margin-top: 5%;
+}
+
+.membership-banner{
+    text-transform: uppercase;
+    background-color: grey;
+    margin-top: 1%;
+    padding: 3%;
+
+}
+
+#form-bottom{
+    font-size: 12px;
+    
+}
+
+.sliding-menu label{
+    display: inline-block;
+    width: 20%;
+       
+}
+
+.continue{
+    display: flex;
+}
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrapper {
+            height: 100vh;
+        }
+
+        #navbar {
+            background-color: black;
+            height: 105px;
+        }
+
+        #logo {
+            width: 340px;
+            height: 55px;
+            margin: auto;
+        }
+
+        #menuitems {
+            text-align: center;
+            padding: 0;
+            margin: 20px 0 0 0;
+            color: white;
+        }
+
+        #menuitems li {
+            display: inline-block;
+            list-style-type: none;
+            margin: 0 20px;
+            /* position: relative; */
+        }
+
+        .hoverwrapper {
+            position: absolute;
+            top: -195px;
+            left: 0;
+            background-color: lightgrey;
+            color: black;
+            font-family: sans-serif;
+            height: 300px;
+            width: 100vw;
+            z-index: -10;
+            transition: top 1s;
+        }
+
+        .hovertrigger:hover+.hoverwrapper {
+            top: 105px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="navbar">
+            <div id="logo"></div>
+            <ul id="menuitems">
+                <li>
+                    <span class="hovertrigger">One</span>
+                    <div class="hoverwrapper">
+                        This is the submenu for One.
+                    </div>
+                </li>
+                <li>
+                    <span class="hovertrigger">Two</span>
+                    <div class="hoverwrapper">
+                        <ul>
+                            <li>Something one.</li>
+                            <li>Something two.</li>
+                            <li>Something three.</li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <li>Three</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

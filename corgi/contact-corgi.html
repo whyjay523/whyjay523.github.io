@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Corgi</title>
+    <script src="https://kit.fontawesome.com/949df75f70.js" crossorigin="anonymous"></script>
+    <style>
+        :required{
+            border: 1px solid red;
+        }
+        body{
+            background: url('./startPackageNew/images/fond_jaune.png');
+            margin :0;
+        }
+        .object-label{
+            vertical-align: top;
+        }
+        .message-label{
+            vertical-align: top;
+        }
+    </style>
+
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <p>Contact Corgi normal Form</p>
+            <p>Personal details</p>
+        
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name" required autofocus>
+            <br>
+            <br>
+            <span>Gender</span>
+            <input type="radio" name="gender" id="male" value="M"><label for="male"><i class="fa-solid fa-person"></i></label>
+            <input type="radio" name="gender" id="female" value="F"><label for="female"><i class="fa-solid fa-person-dress"></i></label>
+            <br>
+            <br>
+            <label for="email">Mail address :</label>
+            <input type="email" name="email" id="email" required>
+            <select name="email" id="email">
+                <option value="gmail">@gmail</option>
+                <option value="yahoo">@yahoo</option>
+                <option value="naver">@naver</option>           
+            </select>
+            <span>.com</span>
+    
+            <br>
+            <br>
+            <label for="object" class="object-label">Object</label>
+            <textarea name="object" id="object"  cols="30" rows="3"></textarea>
+            <br>
+            <br>
+            <label for="message" class="message-label">Message</label>
+            <textarea name="message" id="message" placeholder="Maximum of 300 characters" cols="30" rows="10"></textarea>
+            <br>
+            <br>
+            <button type="submit">Send</button>
+        </fieldset>
+
+
+
+    </form>
+
+
+
+
+</body>
+</html>

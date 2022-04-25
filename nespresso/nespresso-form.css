@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
+      "Lucida Sans", Tahoma, sans-serif;
+    color: #1b1b1b;
+  }
+  
+  h3 {
+    font-weight: 500;
+  }
+  
+  p {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  
+  label {
+    font-size: 12px;
+  }
+  
+  a {
+    color: #986f38;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------------------------- */
+  /* -- Fixed Header with Logo -- */
+  /* ---------------------------- */
+  
+  header {
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    z-index: 1;
+  }
+  
+  header > div {
+    width: 996px;
+    margin: 0 auto;
+  }
+  
+  header img {
+    width: 157px;
+  }
+  
+  /* ---------------------------- */
+  /* -- Main Section with Form -- */
+  /* ---------------------------- */
+  
+  main {
+    width: 996px;
+    margin: 130px auto 20px auto;
+  }
+  
+  #pageTop {
+    position: absolute;
+    top: 0;
+  }
+  
+  #topInfo {
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #f9f9f9;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    color: #656565;
+  }
+  
+  /* ---------------------------- */
+  /* ----------- Form ----------- */
+  /* ---------------------------- */
+  
+  form {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+
+.instructionsContainer {
+    color: #656565;
+    height: 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 210px;
+  height: 47px;
+  padding: 10px 6px;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.formTop label {
+    display: inline-block;
+    width: 162px;
+}
+
+.inputRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+  
+  .inputRow label {
+    align-self: flex-start;
+    margin-top: 17px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+  
+.formContainer {
+    padding: 20px;
+}
+
+.pwdContainer {
+    position: relative;
+    width: 380px;
+}

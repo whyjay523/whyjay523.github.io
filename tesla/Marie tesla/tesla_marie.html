@@ -1,0 +1,469 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Tesla Redux</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <style>
+            /**
+            General tags settings
+            **/
+            html {
+                scroll-behavior: smooth;
+                scroll-snap-type: y mandatory;
+            }
+            body { 
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                font-weight: 500;
+                color: #393D41;
+                font-size: .90em;
+            }
+            section {
+                scroll-snap-align: start;
+            }
+            h1 {
+                margin : 0;
+            }
+
+            a {
+                color: #393D41;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #666;
+            }
+
+           /**
+           Navigation top menu
+           **/
+            nav {
+                position : fixed;
+                width: 100%;
+                margin-bottom: 30vh;
+                display: flex;
+                justify-content: space-between;
+            }
+            #leftnav {
+                width: 25%;
+                height: 100%;
+            }
+            #logo img {
+                width: 100px;
+                height: 11px;
+                color: grey;
+                padding-top: 20px;
+            }
+
+            #centernav {
+                margin : 0;
+                flex:1;
+                font-size: 1.1em;
+                margin-bottom: 60px;
+                margin-left: 60px;
+                padding-top: 20px;
+            }
+            #centernav li {
+                display: inline-block;
+                text-decoration: none;
+                padding-right: 25px;  
+            }
+
+            #rightnav {
+                text-align: center;
+                font-size: 1em;
+                margin: 0;
+                padding-top: 20px;
+                padding-right: 25px;
+                position: relative;
+            }
+            #rightnav li {
+                display: inline-block;
+                text-decoration: none;
+                padding-right: 15px;
+            }
+            .visit a {
+                color :#393D41;
+                font-family: 'Gotham Book';
+                font-size: 14px;
+                text-transform: initial;
+                text-decoration: underline;
+            }
+            
+            /**
+            Hamburger and side list management
+            **/
+            /*Positioning*/
+            #hamburger {
+                overflow-x: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+            /*the 3 elements of the hamburger */
+            .nav-link:before,
+            .nav-link:after,
+            .nav-link div {
+                display: block;
+                background-color: #393D41;
+                width: 17px;
+                height: 2px;
+                border-radius: 1px;
+                margin: 4px 0;
+                content: '';
+                transition: all .3s linear;
+            }
+            #hamburger:hover {
+                right: 0px;
+                transition: 0.3s;
+                background-color: white;
+                height: 100vh;
+            }
+            #hamburger:hover .nav-link {
+                left: 231px;
+                transition: 0.3s;
+            }
+
+            #hamburger:hover .nav-link:before {
+                background-color: black;
+                transform: translateY(6px) rotate(45deg);
+            }
+
+            #hamburger:hover .nav-link:after {
+                background-color: black;
+                transform: translateY(-6px) rotate(-45deg);
+            }
+
+            #hamburger:hover .nav-link div {
+                transform: scale(0);
+            }
+            
+            /*Side menu items positioning*/
+            #hamburger {
+                position: absolute;
+                top:0;
+                right:-210px;
+                width: 221px;
+                height: 100%;
+                padding: 0 20px 20px 20px;
+                color: black;
+                font-size: 14px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .nav-link {  
+                position: absolute;
+                top: 15px;
+                /* left: -30px; */
+            }
+            .side-menu-item {
+                padding: 20px 20px 10px 20px;
+                width: 70%;
+                border-bottom: 1px solid #ddd;
+                
+            }
+            .side-menu-item a  {
+                color: black;
+                font-weight: 800;
+                font-size: 1rem;
+            }
+
+            /*
+            Management of the hover of the hamburger
+            First we display the side menu
+            then the tranformation of the hamburger into a cross
+            */
+            
+            /* #hamburger:hover  .side-menu {
+                display: flex;
+                right: -5px;
+                top: 0px;
+                transition: all ease 0.5s;
+            }
+
+            #hamburger:hover  .top-bar {
+                transform: rotateZ(405deg) translate(3px, 6px);
+                color: #222;
+                border-top: solid 3px #222;
+                z-index: 200;
+            }
+
+            #hamburger:hover  .middle-bar {
+                visibility: hidden;
+                border-top: solid 3px #222;
+            }
+
+            #hamburger:hover  .bottom-bar{
+                transform: rotateZ(-405deg) translate(3.9px, -3.7px);
+                color: #222;
+                border-top: solid 3px #222;
+                z-index: 200;
+            } */
+            .whitespace {
+                height: 150px;
+            }
+
+            /*Text inside the first slide*/
+            #heromenu, #herotitle {
+                text-align: center;
+                margin: auto;
+                color: black;
+            }
+
+            #herotitle {
+                font-size: 3em;
+                color: #393D41;
+            }
+            #visit>a {
+                font-size: 1.2em;
+            }
+            
+            #shop {
+                display: flex;
+                /* justify-content: center; */
+                position:fixed;
+                left: 33%;
+
+            }
+
+            #shop a {
+                margin-top: 20px;
+            }
+            
+            /**Managing of the button style to order*/
+            
+            .order, #inventory {
+                height: 15px;
+                padding: 10px;
+                width: 220px;
+                border: 2px solid #393D41;
+                border-radius: 20px;
+                font-size: 0.75em;
+            }
+            .order {
+                background-color: rgba(61,64,67,1);
+                color:white ;
+            }
+            #inventory {
+                background-color: rgba(255,255,255,0.8);
+                color: black ; 
+                border: 2px solid white;
+                margin-left: 15px;
+            }
+            
+            #inventory:hover {
+                background-color: rgba(255,255,255,0.8);
+                color: black ; 
+            }
+
+            
+            /** Style of the return paragraph*/
+            .return {
+                text-align: center;
+                position: absolute;
+                width: 100%;
+                bottom: 5%;
+            }
+            /*#return p {
+                font-family: 'Open Sans Condensed', sans-serif;
+                font-size: 1em;
+                line-height: 100px;
+                text-align: center;
+                color: white;
+            }*/
+
+            /* Managing of the angle bottom bounce element*/
+            /* .fa-angle-down {
+                font-size: 1.5rem;
+                animation: bounce 3s infinite;
+            } */
+            #arrowContainer {
+               display: flex;
+               justify-content: center;
+               margin-top: 50px;
+            }
+            .nextSlide {
+                position:absolute;
+                bottom : 5%;
+                left :49%;
+                z-index: 999;
+            }
+
+            .arrow {
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid Meet' width='100' height='100'%3e%3cpath d='M100 5.5c0 1.3-.5 2.6-1.5 3.5L50 57.5 1.5 9c-2-2-2-5.1 0-7.1s5.1-2 7.1 0L50 43.4 91.5 1.9c2-2 5.1-2 7.1 0 .9 1 1.4 2.3 1.4 3.6z'/%3e%3c/svg%3e");
+                width: 24px;
+                height: 24px;
+                display : block;
+                animation: bounce 3s infinite;
+                background-size : cover;
+                
+            }
+
+            @keyframes bounce {
+                12% {
+                    transform: translate(0, 5px);
+                }
+
+                25% {
+                    transform: translate(0, 0);
+                }
+
+                37% {
+                    transform: translate(0, 5px);
+                }
+
+                50% {
+                    transform: translate(0, 0);
+                }
+            }
+            
+            /**
+           Slides
+            **/
+            #firstSlide {
+                background: url('https://tesla-cdn.thron.com/delivery/public/image/tesla/8e2df1b9-a4bf-4eb9-beec-2cf5cc77fca0/bvlatuR/std/2880x2400/Desktop-ModelY') no-repeat center;
+                height: 100vh;
+                width: auto;
+                background-size : cover;
+                /* animation: shrink 1s 1; */
+            }
+            /**The zoom management of the first slide **/
+            /* @keyframes shrink {
+                0% {
+                    background-size: 60% 150%;
+                }
+                100% {
+                    background-size: 200% 300%;
+                }
+            } */
+            #secondSlide ,  #thirdSlide {
+                margin : 0;
+                background-position: center;
+                width: 100%;
+                height: 100vh;
+                background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/e5c1a384-6ca5-4785-9dd8-23eb0f4b1f7a/bvlatuR/std/2880x2400/Desktop-ModelX");
+                background-repeat: no-repeat;
+                background-size : cover;
+                display: flex;
+                flex-direction: column;
+            }
+            #thirdSlide {
+                background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/05f64d73-090b-4839-9ed0-5ce18f7fa5de/bvlatuR/std/2880x2400/Desktop-Model3");
+            }
+            .top-text-container {
+                margin: 7% auto 0 auto;
+                text-align: center;
+            }
+            .top-text-container div  {
+                margin-bottom: 20px;
+                letter-spacing: 1.6px;
+                font-size: 3em;
+            }
+            .solar + .order {
+                font-size: 1em;
+                margin-left : 25%;
+            }
+            .solar {
+                font-size: 1em;
+            }
+            .bottom-text {
+                margin: 0 auto 2% auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_container">
+
+            <section id="firstSlide">
+
+                <nav>
+                    <div id="leftnav">
+                            <a href="https://www.tesla.com/"><span id="logo">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/logo.png" alt='Tesla'>
+                            </span></a>
+                    </div>
+                    <ul id="centernav">
+                        <li><a href="https://www.tesla.com/models">MODEL S</a></li>
+                        <li><a href="https://www.tesla.com/model3">MODEL 3</a></li>
+                        <li><a href="https://www.tesla.com/modelx">MODEL X</a></li>
+                        <li><a href="https://www.tesla.com/model3">MODEL Y</a></li>
+                        <li><a href="https://www.tesla.com/roadster">SOLAR ROOF</a></li>
+                        <li><a href="https://www.tesla.com/energy">SOLAR PANELS</a></li>
+                    </ul>
+                    <ul id="rightnav" class="nav-items">
+                        <li class="nav-item"><a href="https://shop.tesla.com/us/en.html">SHOP</a></li>
+                        <li class="nav-item"><a href="./login.html">SIGN IN</a></li>
+                        <li class="nav-item" id="hamburger" >
+                            <div class="nav-link">
+                                <div ></div>
+                            </div>
+                            <div class="side-menu">
+                                <ul  class="side-menu-items">
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">used inventory</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">visit a store</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">support</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">get newsletter</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">news</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">new inventory</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">charging</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">semi</a>
+                                    </li>
+                                    <li class="side-menu-item">
+                                        <a href="#" class="side-menu-link">carbon impact</a>
+                                    </li>
+                                </ul>
+                            </div> 
+                        </li>
+                    </ul>
+                    
+                 </nav>  
+                <div class="whitespace"></div>
+                <div id="herotitle">
+                    Model Y
+                </div>
+                <div id="heromenu">
+                    <div class="visit"><a href="https://www.tesla.com/findus">Order online for a touchless delivery</a> </div>
+                </div>
+        
+                <div class="return angleSlide">
+                    <div id="shop">
+                        <div class="order"><span>CUSTOM ORDER</span></div>
+                        <div id="inventory"><span> LEARN MORE</span></div>        
+                    </div>
+                    <div id="arrowContainer"><a  class="arrow" href="#secondSlide"><span></span></a></div>
+                </div>
+            </section>
+            <section id="secondSlide">
+                <div class="top-text-container">
+                    <div>Model X</div>
+                    <!-- <div class="solar">Order online for a touchless delivery</div> -->
+                    <div class="visit"><a href="https://www.tesla.com/findus">Order online for a touchless delivery</a> </div>
+                </div>
+            </section>
+            <section id="thirdSlide">
+                <div class="top-text-container">
+                    <div class="solar">Tesla Accessories</div>
+                    <div class="order"><span>SHOP NOW</span></div>
+                </div>
+            </section>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,53 @@
+html{
+    background-color: black;
+}
+body{
+background-color: white;
+width:80vw;
+height: 90vh;
+margin-top: 5%;
+margin-bottom: 5%;
+}
+    
+.centered-text {
+    text-align: center;
+    line-height: 5%;
+    text-transform: uppercase;    
+}
+.title-text{
+    margin-bottom: 2%;
+}
+.title-end{
+    margin-top: 2%;
+}
+
+.mid-text{
+    text-align: left;
+    line-height: 20%;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+    font-size: 12px;
+}
+
+#form-top{
+    font-size: 12px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#form-bottom{
+    font-size: 12px;
+}
+
+#form-top label{
+    display: inline-block;
+    width: 10%;
+}
+
+
+
+
+
+
+
+
+

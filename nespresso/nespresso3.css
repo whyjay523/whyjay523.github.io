@@ -1,0 +1,173 @@
+html{
+    background-color: black;    
+}
+
+.logo{
+    margin-left: 60px;        
+}
+
+fieldset{
+    background-color: white;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top:40px;
+}
+
+
+.error{
+    margin-left: 17%;
+    display: none;
+}
+
+
+
+.red {
+    color: red;
+}
+
+
+.display{
+    color: red;
+}
+
+
+
+.text-center{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;;
+}
+
+.line1{
+    font-size: 20px;
+}
+
+.line1 span{
+    font-style: italic;
+}
+.black-bar{
+    background-color: black;
+}
+
+.text-left{
+    font-size: 12px;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+}
+.text-left span{
+    color: gold;
+}
+
+#form-top label{
+    display: inline-block;
+    width: 15%;  
+    font-size: 12px;  
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif; 
+}
+#form-top input{
+    height:30px;
+    width:20%;
+    margin-top: 10px;
+    padding: 10px 6px;    
+}
+
+.mid-header{
+    background-color: grey;
+    padding: 20px;
+}
+
+#sliding-menu {
+    height: 0;
+    overflow-y: hidden;
+    transition: height 1s ease-in-out;
+}
+
+#yes-menu:checked ~ #sliding-menu {
+    height: 180px;
+}
+
+#sliding-menu label{
+    display: inline-block;
+    width: 35%;
+    padding:10px; 
+    margin-left: 15px;      
+}
+
+#sliding-menu input{
+    height:40px ;
+    width: 30%;    
+}
+
+#form-bottom{
+    font-size: 12px;
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;;
+}
+
+#form-bottom span{
+    font-style: italic;
+}
+
+.membership-caption{
+    color: gold;
+    display: block;
+    padding-left: 38%;
+    margin-top:3px;
+}
+
+
+span{
+    font-style: italic;
+}
+.privacy{
+    font-style: normal;
+    color: gold;
+}
+.privacy:hover{
+    text-decoration: underline;
+}
+
+button{
+    background-color: green;
+    color: white;
+    width:15%;
+    padding: 10px;
+    border-radius: 5%;
+    word-spacing: 20px;
+    float: right;  
+    cursor: pointer;  
+}
+
+button:hover{
+    box-shadow: 10px grey;
+}
+
+.footer{
+    background-color: #242323;
+    margin-top: 5px;
+    border: none;
+}
+
+.select-menu{
+    margin-left:60px;    
+}
+
+.select-menu option{
+    width: 100px;
+    height:100px;
+}
+
+.footer-menu-A a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+.footer-menu-B a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;   
+}
+
+.footer-menu {
+    float: right;
+    text-align: right;  
+}
